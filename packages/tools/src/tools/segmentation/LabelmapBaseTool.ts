@@ -142,9 +142,6 @@ export default class LabelmapBaseTool extends BaseTool {
         segmentId,
         segmentationVoxelManager
       );
-      console.log('Creating memo on this', !!this.memo);
-    } else {
-      console.log('Memo already exists on this');
     }
 
     return this.memo as LabelmapMemo.LabelmapMemo;

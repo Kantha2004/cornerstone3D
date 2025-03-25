@@ -1,8 +1,3 @@
-import { coreLog } from '../logger';
-
-const log = coreLog.getLogger('HistoryMemo');
-log.setLevel('debug');
-
 export type Memo = {
   /**
    * This restores memo state.  It is an undo if undo is true, or a redo if it
@@ -68,9 +63,7 @@ export class HistoryMemo {
    * Undoes up to the given number of items off the ring
    */
   public undo(items = 1) {
-    log.debug('Undo', items, 'with available', this.undoAvailable);
     while (items > 0 && this.undoAvailable > 0) {
-      log.debug('running undo', this.position, this.ring[this.position]);
       const item = this.ring[this.position];
       item.restoreMemo(true);
       items--;

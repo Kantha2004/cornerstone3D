@@ -85,23 +85,6 @@ export default {
   [StrategyCallbacks.RejectPreview]: (
     operationData: InitializedOperationData
   ) => {
-    console.debug('reject preview');
     utilities.HistoryMemo.DefaultHistoryMemo.undo();
-    // const { segmentationVoxelManager } = operationData;
-    // if (previewVoxelManager.modifiedSlices.size === 0) {
-    //   return;
-    // }
-    // const callback = ({ index, value }) => {
-    //   segmentationVoxelManager.setAtIndex(index, value);
-    // };
-    // previewVoxelManager.forEach(callback);
-    // // Primarily rejects back to zero, so use 0 as the segment index - even
-    // // if sometimes it modifies the data to other values on reject.
-    // triggerSegmentationDataModified(
-    //   operationData.segmentationId,
-    //   previewVoxelManager.getArrayOfModifiedSlices(),
-    //   0
-    // );
-    // previewVoxelManager.clear();
   },
 };
